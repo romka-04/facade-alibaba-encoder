@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanC.Alibaba.Facade.Encoder.Server", "RomanC.Alibaba.Facade.Encoder\Server\RomanC.Alibaba.Facade.Encoder.Server.csproj", "{973B8E44-CB8C-42B3-AD25-12D4F4181E0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanC.Alibaba.Facade.Encoder.Server", "Server\RomanC.Alibaba.Facade.Encoder.Server.csproj", "{973B8E44-CB8C-42B3-AD25-12D4F4181E0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanC.Alibaba.Facade.Encoder.Client", "RomanC.Alibaba.Facade.Encoder\Client\RomanC.Alibaba.Facade.Encoder.Client.csproj", "{36BBCAAF-1275-4C54-BD3A-5EE72B132220}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanC.Alibaba.Facade.Encoder.Client", "Client\RomanC.Alibaba.Facade.Encoder.Client.csproj", "{36BBCAAF-1275-4C54-BD3A-5EE72B132220}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanC.Alibaba.Facade.Encoder.Shared", "RomanC.Alibaba.Facade.Encoder\Shared\RomanC.Alibaba.Facade.Encoder.Shared.csproj", "{C9C9A909-40F1-4201-BA25-807FA83F71EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanC.Alibaba.Facade.Encoder.Shared", "Shared\RomanC.Alibaba.Facade.Encoder.Shared.csproj", "{C9C9A909-40F1-4201-BA25-807FA83F71EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
