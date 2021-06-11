@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:29717",
-      "sslPort": 0
+      "applicationUrl": "http://localhost:48711",
+      "sslPort": 44373
     }
   },
   "profiles": {
@@ -16,12 +16,12 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Bridge.Facade.Alibaba.Encoder": {
+    "RomanC.Alibaba.Facade.Encoder": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
       "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
-      "applicationUrl": "http://localhost:5000",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

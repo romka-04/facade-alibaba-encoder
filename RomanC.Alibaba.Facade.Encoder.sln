@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RomanC.Alibaba.Facade.Encoder.Tests", "RomanC.Alibaba.Facade.Encoder.Tests\RomanC.Alibaba.Facade.Encoder.Tests.csproj", "{52754E02-53A9-4F84-9045-C20D8A048C07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanC.Alibaba.Facade.Encoder", "RomanC.Alibaba.Facade.Encoder\RomanC.Alibaba.Facade.Encoder.csproj", "{A57F23F6-4963-4304-B0B5-17BD08EAA8CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52754E02-53A9-4F84-9045-C20D8A048C07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52754E02-53A9-4F84-9045-C20D8A048C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52754E02-53A9-4F84-9045-C20D8A048C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52754E02-53A9-4F84-9045-C20D8A048C07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A57F23F6-4963-4304-B0B5-17BD08EAA8CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A57F23F6-4963-4304-B0B5-17BD08EAA8CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A57F23F6-4963-4304-B0B5-17BD08EAA8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A57F23F6-4963-4304-B0B5-17BD08EAA8CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3DBB86B-F2CE-406E-8CD8-EA6E8FD944B9}
+	EndGlobalSection
+EndGlobal

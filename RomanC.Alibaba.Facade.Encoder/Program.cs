@@ -7,8 +7,9 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using RomanC.Alibaba.Facade.Encoder.Services;
 
-namespace Bridge.Facade.Alibaba.Encoder
+namespace RomanC.Alibaba.Facade.Encoder
 {
     public class Program
     {
@@ -18,6 +19,7 @@ namespace Bridge.Facade.Alibaba.Encoder
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddTransient<IEncoderService, DefaultEncoderService>();
 
             await builder.Build().RunAsync();
         }
