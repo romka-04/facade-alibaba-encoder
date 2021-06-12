@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RomanC.Alibaba.Facade.Encoder.Client
+namespace RomanC.Alibaba.Facade.Encoder
 {
     public class Program
     {
