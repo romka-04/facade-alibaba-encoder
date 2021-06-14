@@ -48,3 +48,21 @@ a, .btn-link {
         right: 0.75rem;
         top: 0.5rem;
     }
+
+/*  Copy to clipboard (similar to bootstrap website) */
+
+.clipboard {
+    position: relative;
+    display: block;
+    float: right;
+    margin-top: 0;
+}
+.btn-clipboard {
+    cursor: pointer;
+    position: absolute;
+    top: 2.65rem;
+    right: 0.65rem;
+    z-index: 10;
+    display: block;
+    padding: 0.25rem 0.5rem;
+}

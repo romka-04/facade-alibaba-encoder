@@ -1,6 +1,5 @@
 ﻿@page "/"
 @page "/encode"
-@inject IJSRuntime JSRuntime
 @inject IEncoderService  EncoderService
 
 <EditForm Model="@Model" OnValidSubmit="@HandleValidSubmit">
@@ -28,11 +27,11 @@
 <hr />
 <div class="form-group">
     <label for="encodedResult">Encoded string ready to use HTTP request body.</label>
+    <CopyToClipboard Text="@_encodedMsg" Disabled="@(!HasEncodedMsg)"></CopyToClipboard>
     <textarea id="encodedResult" class="form-control" readonly="readonly" rows="10">
         @_encodedMsg
     </textarea>
 </div>
-<button type="button" class="btn btn-primary" disabled="@(!HasEncodedMsg)" @onclick="CopyTextToClipboard">Copy to Clipboard</button>
 
 @code {
     private EncodeViewModel Model = new();
@@ -44,9 +43,9 @@
         _encodedMsg = await EncoderService.Encode(Model, CancellationToken.None);
     }
 
-    private async Task CopyTextToClipboard()
-    {
-        await JSRuntime.InvokeVoidAsync("clipboardCopy.copy", _encodedMsg);
-    }
+    //private async Task CopyTextToClipboard()
+    //{
+    //    await JSRuntime.InvokeVoidAsync("clipboardCopy.copy", _encodedMsg);
+    //}
 
 }

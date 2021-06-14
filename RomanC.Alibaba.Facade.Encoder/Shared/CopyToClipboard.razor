@@ -1,0 +1,35 @@
+﻿@inject IJSRuntime JSRuntime
+
+<div class="clipboard">
+    <button id="@_elementId"
+            type="button"
+            class="btn btn-outline-primary btn-sm btn-clipboard"
+            data-toggle="tooltip" 
+            data-placement="top" 
+            title="Copy to clipboard"
+            disabled="@Disabled"
+            @onclick="CopyTextToClipboard">Copy</button>
+</div>
+
+@code {
+    readonly string _elementId = $"copyToClipboard-{Guid.NewGuid():D}";
+
+    [Parameter]
+    public bool Disabled { get; set; }
+    [Parameter]
+    public string Text { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // init tooltip
+            await JSRuntime.InvokeAsync<object>("clipboardCopy.init", _elementId);
+        }
+    }
+
+    private async Task CopyTextToClipboard()
+    {
+        await JSRuntime.InvokeVoidAsync("clipboardCopy.copy", _elementId, Text);
+    }
+}

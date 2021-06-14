@@ -7,9 +7,34 @@
                 alert(error);
             });
     },
-    copy: function (data) {
+    init: function(elementId) {
+        var elem = document.getElementById(elementId);
+        if (!elem) {
+            throw new Error('No element with ID ' + elementId);
+        }
+
+        $(elem).tooltip();
+    },
+    copy: function (elementId, data) {
+        var elem = document.getElementById(elementId);
+        if (!elem) {
+            throw new Error('No element with ID ' + elementId);
+        }
+        var $elem = $(elem);
+
+
         navigator.clipboard.writeText(data).then(function () {
-                alert("Copied to clipboard!");
+                $elem
+                    .attr('title', 'Copied!')
+                    .tooltip('_fixTitle')
+                    .tooltip('show');
+                setTimeout(function() {
+                        $elem
+                            .attr('title', 'Copy to clipboard')
+                            .tooltip('_fixTitle')
+                            .tooltip('show');
+                    },
+                    1000);
             })
             .catch(function (error) {
                 alert(error);
