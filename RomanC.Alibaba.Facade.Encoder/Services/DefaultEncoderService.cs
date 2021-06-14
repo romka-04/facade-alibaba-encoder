@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using RomanC.Alibaba.Facade.Encoder.Models;
 using Microsoft.AspNetCore.WebUtilities;
@@ -45,9 +47,10 @@ namespace RomanC.Alibaba.Facade.Encoder.Services
             };
         }
 
-        public string Encode(string messageContentXml, string messageType, string secretKey)
+        public async Task<string> Encode(string messageContentXml, string messageType, string secretKey,
+            CancellationToken cancellationToken)
         {
-            var sing = _signingService.Sing(messageContentXml, secretKey);
+            var sing = await _signingService.Sing(messageContentXml, secretKey, cancellationToken);
 
             var msgAsParams = new Dictionary<string, string>
             {

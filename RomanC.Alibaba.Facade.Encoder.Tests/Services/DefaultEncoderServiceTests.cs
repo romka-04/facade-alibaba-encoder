@@ -1,4 +1,6 @@
-﻿using FluentAssertions;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 using RomanC.Alibaba.Facade.Encoder.Models;
@@ -37,18 +39,18 @@ namespace RomanC.Alibaba.Facade.Encoder.Services
         }
 
         [Test]
-        public void Encode_good_args_should_create_proper_result()
+        public async Task Encode_good_args_should_create_proper_result()
         {
             // arrange
             var mcx = "<order>helloworld</order>";
             var mt  = "LOGISTICS_BATCH_SEND";
             var sk  = "any";
             var sut = (DefaultEncoderService) _fixture.CreateSut();
-            sut.SigningService = Mock.Of<ISigningService>(
-                x => x.Sing(It.IsAny<string>(), It.IsAny<string>()) == "7gT/HmFFTflwfm/3LOKdmQ=="
-            );
+            //sut.SigningService = Mock.Of<ISigningService>(
+            //    x => x.Sing(It.IsAny<string>(), It.IsAny<string>(), TODO) == "7gT/HmFFTflwfm/3LOKdmQ=="
+            //);
             // act
-            var actual = sut.Encode(mcx, mt, sk);
+            var actual = await sut.Encode(mcx, mt, sk, CancellationToken.None);
             // assert
             var expected = _fixture.CreateRawCainioMessage();
             actual.Should().BeEquivalentTo(expected);

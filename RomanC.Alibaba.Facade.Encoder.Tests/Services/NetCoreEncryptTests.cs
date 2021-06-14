@@ -1,32 +1,34 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace RomanC.Alibaba.Facade.Encoder
+namespace RomanC.Alibaba.Facade.Encoder.Services
 {
     [TestFixture]
-    public class NetCoreEncryptTests
+    public class CainiaoSigningServiceTests
     {
         [Test]
-        public void MD5_compare_with_microsoft()
+        public async Task MD5_custom_implementation_compare_with_microsoft()
         {
             // arrange
             var arg = _fixture.CreateRandomString(256);
             // act
-            var actual = MD5_NetCoreEncrypt(arg);
+            var actual = await MD5_NetCoreEncrypt(arg);
             var expected = MD5_Legacy(arg);
             // assert
             actual.Should().BeEquivalentTo(expected);
         }
 
-        private string MD5_NetCoreEncrypt(string input)
+        private async Task<string> MD5_NetCoreEncrypt(string input)
         {
-            // implement using 
-            // https://stackoverflow.com/a/53719198/2903893
-
-            throw new NotImplementedException();
+            var blob = await CainiaoSigningService.Md5Encrypt(input, CancellationToken.None);
+            var res = Encoding.ASCII.GetString(blob);
+            await TestContext.Out.WriteLineAsync($"Custom Impl: '{res}'");
+            return res;
         }
 
         // https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.md5?redirectedfrom=MSDN&view=net-5.0
@@ -45,18 +47,18 @@ namespace RomanC.Alibaba.Facade.Encoder
             }
 
             var res = sb.ToString();
-            TestContext.Out.WriteLine($"NETCore.Encrypt: '{res}'");
+            TestContext.Out.WriteLine($"Legacy: '{res}'");
             return res;
         }
 
         #region Test Helpers
 
-        private NetCoreEncryptTestsFixture _fixture;
+        private CainiaoSigningServiceTestsFixture _fixture;
 
         [SetUp]
         public void SetUp()
         {
-            _fixture = new NetCoreEncryptTestsFixture();
+            _fixture = new CainiaoSigningServiceTestsFixture();
         }
 
         [TearDown]
@@ -67,7 +69,7 @@ namespace RomanC.Alibaba.Facade.Encoder
         #endregion
     }
 
-    public class NetCoreEncryptTestsFixture
+    public class CainiaoSigningServiceTestsFixture
     {
         private Random _random = new();
 

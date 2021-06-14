@@ -1,0 +1,42 @@
+﻿@using System.Xml.Linq
+<textarea id="messageContentXml" class="form-control" rows="10" readonly="readonly">
+        @_xml
+</textarea>
+@if (!_isXml && null != _rawValue)
+{
+    // show notification that we can't parse Value as XML
+    <span class="badge bg-danger">Unable to parse as XML</span>
+}
+
+@code {
+
+    private string _rawValue;
+    private string _xml;
+    private bool _isXml;
+
+    [Parameter]
+    public string Value
+    {
+        get => _rawValue;
+        set
+        {
+            _rawValue = value;
+            _isXml = TryFormatXml(value, out _xml);
+        }
+    }
+
+    private static bool TryFormatXml(string input, out string xml)
+    {
+        try
+        {
+            XDocument doc = XDocument.Parse(input);
+            xml = doc.ToString();
+            return true;
+        }
+        catch (Exception)
+        {
+            xml = input;
+            return false;
+        }
+    }
+}

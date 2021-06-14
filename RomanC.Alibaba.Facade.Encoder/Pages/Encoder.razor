@@ -3,7 +3,6 @@
 @inject IJSRuntime JSRuntime
 @inject IEncoderService  EncoderService
 
-<h3>Encoder</h3>
 <EditForm Model="@Model" OnValidSubmit="@HandleValidSubmit">
     <div class="form-group">
         <label for="messageContentXml">Message Content (XML)</label>
@@ -40,9 +39,9 @@
     private string _encodedMsg;
     private bool HasEncodedMsg => !string.IsNullOrWhiteSpace(_encodedMsg);
 
-    private void HandleValidSubmit()
+    private async Task HandleValidSubmit()
     {
-        _encodedMsg = EncoderService.Encode(Model);
+        _encodedMsg = await EncoderService.Encode(Model, CancellationToken.None);
     }
 
     private async Task CopyTextToClipboard()
