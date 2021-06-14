@@ -1,0 +1,8 @@
+[
+  {
+    "outputFileName": "wwwroot/site.min.js",
+    "inputFiles": [
+      "wwwroot/clipboardCopy.js"
+    ]
+  }
+]

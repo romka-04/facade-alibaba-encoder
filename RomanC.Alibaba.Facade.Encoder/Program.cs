@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using RomanC.Alibaba.Facade.Encoder.Services;
 
 namespace RomanC.Alibaba.Facade.Encoder
 {
@@ -18,6 +19,7 @@ namespace RomanC.Alibaba.Facade.Encoder
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddTransient<IEncoderService, DefaultEncoderService>();
 
             await builder.Build().RunAsync();
         }
